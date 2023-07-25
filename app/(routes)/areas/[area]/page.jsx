@@ -21,8 +21,6 @@ const validAreas = ['frontend', 'backend', 'otros-recursos']
 export default function Technologies() {
   const pathname = usePathname()
   const area = pathname.split('/')[2]
-  if (!validAreas.includes(area)) return notFound()
-
   const [technologies, setTechnologies] = useState([])
   const [categories, setCategories] = useState([])
   const [currentCategory, setCurrentCategory] = useState('')
@@ -66,6 +64,10 @@ export default function Technologies() {
     )
     setCategories(fetchedCategories)
   }, [technologies])
+
+  if (!validAreas.includes(area)) {
+    return notFound()
+  }
 
   return (
     <Section>
