@@ -1,7 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 /* eslint-disable-next-line no-undef */
 module.exports = {
-  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  content: [
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+
+    // Or if using `src` directory:
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
   theme: {
     extend: {
       backgroundImage: {
@@ -22,9 +29,6 @@ module.exports = {
           },
         },
       },
-    },
-    fontFamily: {
-      body: ['"Roboto"', 'system-ui', '-apple-system', 'sans-serif'],
     },
     screens: {
       xs: '320px',

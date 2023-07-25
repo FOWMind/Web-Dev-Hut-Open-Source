@@ -1,6 +1,0 @@
-export * from './Home'
-export * from './LearnRoutes'
-export * from './Technologies'
-export * from './Error404'
-export * from './Technology'
-export * from './Guide'

@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    @apply min-h-full;
+  }
+
+  .lesson-content h1,
+  .lesson-content h2,
+  .lesson-content h3,
+  .lesson-content h4,
+  .lesson-content h5,
+  .lesson-content h6,
+  .lesson-content p,
+  .lesson-content ul,
+  .lesson-content pre {
+    @apply mb-4;
+  }
+
+  .lesson-content pre {
+    @apply bg-[#111b27] border-l-4 border-[#00BBE4] rounded-md flex justify-start items-start overflow-hidden;
+  }
+
+  .lesson-content pre .code-box {
+    @apply bg-[#0c141c] p-4 w-full !important;
+  }
+
+  .lesson-content code:not(pre code) {
+    @apply bg-[#7D7D7D]/50 px-1;
+  }
+}
+
+@layer utilities {
+  .copy-code-button {
+    @apply [&>svg]:text-white/50 [&>svg]:hover:text-white inline-block py-2;
+  }
+
+  .filter-button {
+    @apply uppercase outline-none bg-transparent text-white inline-block cursor-pointer text-sm  border-b-4 border-b-white border-[none] border-solid hover:text-[#40C18A] hover:border-[#40C18A] font-bold tracking-wide mb-2 py-2 px-5;
+  }
+
+  .filter-button.active {
+    @apply !text-[#40C18A] transition-[1s] duration-[ease-in-out] !border-[#40C18A];
+  }
+}
