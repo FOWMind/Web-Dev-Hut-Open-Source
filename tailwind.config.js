@@ -2,7 +2,7 @@
 /* eslint-disable-next-line no-undef */
 module.exports = {
   content: [
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
 
@@ -41,11 +41,11 @@ module.exports = {
     },
   },
   plugins: [
-    function ({ addVariant }) {
-      addVariant('child', '& *')
-      addVariant('child-hover', '& *:hover')
-      addVariant('direct-child', '& > *')
-      addVariant('direct-child-hover', '& > *:hover')
+    function({ addVariant }) {
+      addVariant('child', '& *');
+      addVariant('child-hover', '& *:hover');
+      addVariant('direct-child', '& > *');
+      addVariant('direct-child-hover', '& > *:hover');
     },
   ],
-}
+};

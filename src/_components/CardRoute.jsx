@@ -1,0 +1,57 @@
+import { BiRightArrowAlt } from 'react-icons/bi'
+
+import Frontend from 'src/_assets/icons/frontend.svg'
+import Backend from 'src/_assets/icons/backend.svg'
+
+import { Headline, Paragraph, LinkShallow } from 'src/_components'
+
+export const CardRoute = () => {
+  const routes = [
+    {
+      title: 'Frontend',
+      p: 'La ruta de aprendizaje de frontend se enfoca en las tecnologías y herramientas utilizadas para construir la interfaz de usuario de una aplicación web.',
+      to: '/rutas',
+      img: Frontend,
+    },
+    {
+      title: 'Backend',
+      p: 'La ruta de aprendizaje de backend se enfoca en las tecnologías utilizadas para construir la lógica de negocio y la funcionalidad de una aplicación web.',
+      to: '/rutas',
+      img: Backend,
+    },
+  ]
+
+  return (
+    <>
+      {routes.map((rout, i) => (
+        <div
+          key={rout.title + i}
+          className="sm:max-w-[245px] overflow-y-auto rounded-[40px] p-4 relative backdrop-blur-lg bg-black bg-opacity-20"
+        >
+          <div className="absolute top-4 right-4 z-10 p-2 rounded-[50px] bg-[#909090]">
+            <img
+              src={rout.img?.src || rout.img}
+              alt=""
+              className="w-full h-full object-contain"
+              draggable="false"
+            />
+          </div>
+          <div className="text-[#f1f1f1]">
+            <Headline as="h4" size="sm" className="mt-2">
+              {rout.title}
+            </Headline>
+            <Paragraph className="my-2">{rout.p}</Paragraph>
+          </div>
+          <div className="w-full flex justify-center text-2xl text-[#212D5F] p-2">
+            <LinkShallow
+              href={rout.to}
+              className="w-7 h-7 bg-[#212D5F] block rounded-[50px] text-[#f1f1f1] mx-auto sm:mt-4"
+            >
+              <BiRightArrowAlt className="w-full h-full" />
+            </LinkShallow>
+          </div>
+        </div>
+      ))}
+    </>
+  )
+}

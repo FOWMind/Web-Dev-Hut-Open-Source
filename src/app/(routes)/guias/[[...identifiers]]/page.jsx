@@ -1,0 +1,101 @@
+'use client'
+
+import { useEffect, useState } from 'react'
+import { useRouter, useParams } from 'next/navigation'
+
+import { useAlert } from 'src/_hooks'
+import { Guides, Lessons } from 'src/_services'
+import {
+  Container,
+  GuideLesson,
+  GuideSidebar,
+  Headline,
+  Loading,
+  Section,
+} from 'src/_components'
+
+export default function Guide() {
+  const router = useRouter()
+  const params = useParams()
+  const guideIdentifier = params.identifiers[0]
+  const lessonIdentifier = params.identifiers[1]
+  const { alert } = useAlert()
+  const [guide, setGuide] = useState({})
+  const [lesson, setLesson] = useState({})
+  const [loadingLesson, setLoadingLesson] = useState(false)
+  const [err, setErr] = useState('')
+
+  const showError = (error) => {
+    setErr(error)
+    alert.error(error)
+  }
+
+  const fetchGuide = async () => {
+    const { data, error } = await Guides.getByIdentifier(guideIdentifier)
+    if (error) showError(error)
+
+    // Guide not found, set guide and lesson to null
+    if (!data) {
+      setGuide(null)
+      setLesson(null)
+      return
+    }
+
+    // Guide found, no lesson specified
+    if (!lessonIdentifier) {
+      const firstLesson = data.lessons[0]
+      if (!firstLesson) return setGuide(null)
+      return router.push(`/guias/${guideIdentifier}/${firstLesson.identifier}`)
+    }
+
+    const fetchedLesson = fetchLesson(lessonIdentifier)
+    if (!fetchedLesson) return setGuide(null)
+
+    setGuide(data)
+    return data
+  }
+
+  const fetchLesson = async (identifier) => {
+    const { data, error } = await Lessons.getByIdentifier(identifier)
+    if (error) showError(error)
+    if (!data) return setLesson(null)
+
+    setLoadingLesson(false)
+    setLesson(data)
+    return data
+  }
+
+  useEffect(() => {
+    setLoadingLesson(true)
+    fetchGuide()
+  }, [lessonIdentifier])
+
+  return (
+    <Section>
+      <Container className="my-16">
+        {lesson && Object.entries(lesson).length === 0 && !err ? (
+          <Loading />
+        ) : null}
+
+        {!guide || !lesson || err ? (
+          <Headline size="sm">No hay contenido para mostrar</Headline>
+        ) : null}
+
+        {guide?.lessons?.length > 0 &&
+        lesson &&
+        Object.entries(lesson).length > 0 ? (
+          <>
+            <Headline size="sm" className="max-w-xl mb-4">
+              Guías | {guide.name}
+            </Headline>
+
+            <div className="flex justify-between items-stretch flex-wrap gap-10">
+              <GuideSidebar guide={guide} lessonIdentifier={lessonIdentifier} />
+              <GuideLesson lesson={lesson} loadingLesson={loadingLesson} />
+            </div>
+          </>
+        ) : null}
+      </Container>
+    </Section>
+  )
+}

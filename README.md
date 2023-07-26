@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./app/_assets/logo.png" width="318px" alt="WebDevHut logo" />
+  <img src="./src/_assets/logo.png" width="318px" alt="WebDevHut logo" />
 </p>
 
 <p align="center">
