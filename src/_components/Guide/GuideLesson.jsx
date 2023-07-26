@@ -22,7 +22,9 @@ const markdownComponents = {
   h5: ({ node, ...props }) => <Headline as="h5" size="xs" {...props} />,
   h6: ({ node, ...props }) => <Headline as="h6" size="xs" {...props} />,
   p: ({ node, ...props }) => <Paragraph {...props} />,
-  a: ({ target, node, ...props }) => <Anchor target="_blank" {...props} />,
+  a: ({ target, node, ...props }) => (
+    <Anchor target="_blank" rel="noopener noreferrer" {...props} />
+  ),
   li: ({ ordered, node, ...props }) => <ListItem {...props} />,
 }
 

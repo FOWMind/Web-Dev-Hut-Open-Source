@@ -59,6 +59,7 @@ export function About() {
               <LinkShallow
                 href="https://github.com/adanj27/Web-Dev-Hut-Open-Source"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <Button as="span" icon={BsGithub}>
                   Github

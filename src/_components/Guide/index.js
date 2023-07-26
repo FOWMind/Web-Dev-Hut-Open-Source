@@ -1,3 +1,3 @@
-export * from './GuideCard';
-export * from './GuideSidebar';
-export * from './GuideLesson';
+export * from './GuideCard'
+export * from './GuideSidebar'
+export * from './GuideLesson'

@@ -35,6 +35,7 @@ export const Contributors = () => {
               key={collaborator.id}
               href={collaborator.html_url}
               target="_blank"
+              rel="noopener noreferrer"
             >
               <img
                 src={collaborator.avatar_url}

@@ -11,4 +11,4 @@ export const API = {
     TECHNOLOGY_BY_NAME: (name) => `/technology/${name}`,
   },
   TIMEOUT: 15000,
-};
+}

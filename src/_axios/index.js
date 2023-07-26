@@ -1,3 +1,3 @@
-'use client';
+'use client'
 
-export * from './localAPI';
+export * from './localAPI'

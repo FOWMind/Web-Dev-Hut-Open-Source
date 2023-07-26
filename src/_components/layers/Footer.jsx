@@ -49,6 +49,7 @@ export function Footer({ className = '', ...props }) {
             <LinkShallow
               href="https://github.com/adanj27/Web-Dev-Hut-Open-Source"
               target="_blank"
+              rel="noopener noreferrer"
             >
               <BsGithub /> Github
             </LinkShallow>
@@ -57,6 +58,7 @@ export function Footer({ className = '', ...props }) {
             <LinkShallow
               href="https://github.com/adanj27/Web-Dev-Hut-Open-Source/blob/main/LICENSE"
               target="_blank"
+              rel="noopener noreferrer"
             >
               <MdCardGiftcard /> Licencia
             </LinkShallow>

@@ -18,7 +18,7 @@
     "strict": ["error", "global"],
     "no-unused-vars": ["warn", { "vars": "all", "args": "none" }],
     "quotes": ["error", "single", { "avoidEscape": true }],
-    "space-before-function-paren": ["error", "never"],
+    "space-before-function-paren": "off",
     "react/no-unescaped-entities": "off",
     "@next/next/no-page-custom-font": "off",
     "react/prop-types": "off",

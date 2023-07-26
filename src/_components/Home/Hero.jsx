@@ -37,6 +37,7 @@ export const Hero = () => {
               <a
                 href="https://discord.gg/DCrVhFydDW"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="leading-6"
               >
                 Comunidad de discord

@@ -1,2 +1,2 @@
-export * from './validateError';
-export * from './copyToClipboard';
+export * from './validateError'
+export * from './copyToClipboard'
