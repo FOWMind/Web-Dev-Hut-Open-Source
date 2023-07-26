@@ -13,7 +13,7 @@
     "browser": true
   },
   "rules": {
-    "semi": [2, "always"],
+    "semi": "off",
     "require-yield": 0,
     "strict": ["error", "global"],
     "no-unused-vars": ["warn", { "vars": "all", "args": "none" }],
